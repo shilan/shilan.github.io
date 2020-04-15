@@ -9,3 +9,10 @@ title: About
 ---
 
 > **Note**: Add Markdown syntax content to file `tabs/about.md` and it will show up on this page.
+<div>
+  <p>
+    My name is Shilan Kalhor and I have been coding and painting for over a decade now.
+    These days I mostly work with Java and Spring framework but of course like all backend programmers
+    have tried frontend technologies too. ;)
+  <p>
+</div>  
