@@ -1,9 +1,9 @@
 ---
 title: Date/time picker with Wicket 8.
 author: Shilan Kalhor
-date: 2020-04-15 00:34:00 +0800
-categories: [Coding, Springboot]
-tags: [java, locale, json, serialize, deserialize, java8, Springboot]
+date: 2020-05-01 15:34:00 +0800
+categories: [Coding, Springboot, Wicket]
+tags: [java8, Wicket, DatePicker]
 toc: false
 ---
 
