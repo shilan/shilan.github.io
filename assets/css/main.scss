@@ -252,7 +252,8 @@ $tab-count: {{ site.data.tabs | size }};
 
 #site-title {
   text-align: left;
-  line-height: 3.2rem;
+  line-height: 2.2rem;
+  margin-left: 3rem;
   a {
     color: var(--site-title-color);
     font-weight: 800;
