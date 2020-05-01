@@ -7,11 +7,9 @@ title: About
 # © 2017-2019 Cotes Chung
 # MIT License
 ---
+ 
+My name is Shilan and I have been coding and painting for over a decade now.
+These days I mostly work with Java and Spring framework but of course like all backend programmers
+had to sometimes try frontend technologies. ;)
 
-<div>
-  <p>
-    My name is Shilan Kalhor and I have been coding and painting for over a decade now.
-    These days I mostly work with Java and Spring framework but of course like all backend programmers
-    have tried frontend technologies too. ;)
-  <p>
-</div>  
+ 
