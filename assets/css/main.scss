@@ -251,11 +251,12 @@ $tab-count: {{ site.data.tabs | size }};
 } // #avatar
 
 #site-title {
-  text-align: center;
+  text-align: left;
+  line-height: 3.2rem;
   a {
     color: var(--site-title-color);
-    font-weight: 900;
-    font-size: 1.5rem;
+    font-weight: 800;
+    font-size: 3rem;
     letter-spacing: .5px;
     &:hover {
       color: #fff;
