@@ -38,6 +38,7 @@ public class MyPage {
     form.add(fromDatePicker);
 }
 ```
+You might have noticed that you need to imply your desired **date format two times**. Once as a parameter to the `DatePicker` constructor and another time as `Options` constructor parameter. And this is absolutely neccessary otherwise your format won't work!
 Remember to add it to your html page:
 
 ```html
@@ -48,4 +49,6 @@ Remember to add it to your html page:
 **Note** with Kundo DatePicker you won't need to create a separate textfield like old days but everything comes along with DatePicker class. Honestly I loved this feature of Kundo DatePicker.
 
 ## What is going on under the hood!
-public abstract class LocalTextField <T> extends org.apache.wicket.markup.html.form.TextField<T>
+LocalDate compatible of `DatePicker` class extends `com.googlecode.wicket.kendo.ui.form.datetime.local.LocalTextField<java.time.LocalDate>` which allows us easily use LocalDate. As you may see in the API class `LocalTextField` extends `org.apache.wicket.markup.html.form.TextField<T>`.
+
+If you are planning to use classic `util.Date`, there are more options out there but Kundo let you directly use datetime package which is an older implementation and works just fine. :)
