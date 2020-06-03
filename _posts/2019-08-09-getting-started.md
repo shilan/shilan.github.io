@@ -6,5 +6,7 @@ categories: [Blogging, Tutorial, Knowledge_Sharing]
 tags: [sharing code]
 ---
 
-## We are sharing code, Smile! :)
-Sometimes bugs drive me mad and I can't find the solution in stackoverflow or google. If I manage to find the solution, here, I will share it with you.
+## We are sharing solutions, smile! :)
+Yeah, sometimes bugs can drive **developers** crazy, especially if you google them and notice you are the only one in entire world having that problem!
+I believe all of us should step in and share whatever that we found out after one of those known struggles.
+Here we go, I am doing it now....
