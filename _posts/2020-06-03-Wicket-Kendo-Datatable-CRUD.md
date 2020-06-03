@@ -12,8 +12,8 @@ Well in the beginning it sounds easy. Every single UI framework will provide you
 CRUD functionalities to, *BUT NOT* Wicket!
 
 I had a hard time finding an standard native solution, impossible! Library or something that does support inline editing with Wicket when I finally came across Kendo UI library.
-The document looked shiny and easy but then later came problems.
-http://www.7thweb.net/wicket-jquery-ui/kendo/datatable/CommandsDataTablePage
+The [Wicket KendoUI Document](http://www.7thweb.net/wicket-jquery-ui/kendo/datatable/CommandsDataTablePage) looked shiny and promising but then later came problems.
+
 Adding the dependencies and everything you expect that your simple datatable should work but it doesn't.
 
 There is this small sign right in front of Datatable menu item --> (Pro)
@@ -23,7 +23,7 @@ specifically this file has a different type of license from the rest of KendoUI 
 So if you want to implement KendoUI datatable you need to either download this file or use the CDN link of it!
 Well I am working in a company that direct hotlinks are not allowed so I had to suffer even more.
 
-Fortunately the author of Kendo datatable Sebastian [https://github.com/sebfz1/wicket-jquery-ui/issues/318]
+Fortunately the author of Kendo datatable [Sebastian](https://github.com/sebfz1/wicket-jquery-ui/issues/318)
 was very kind and helpful to guide me how to fix this issue and actually there I realized that I cannot
 use this component due to license violation unless I buy it!
 
@@ -35,7 +35,7 @@ component and enjoy the elegant interface of it.
 
 ## Jump to code!
 Here is the github link:
-https://github.com/shilan/wicket-kendo-datatable
+[https://github.com/shilan/wicket-kendo-datatable](https://github.com/shilan/wicket-kendo-datatable)
 
 Another thing that I was missing from KendUI datatable documentation was all sort of things and tricks that you can do with the the datatable columns.
 Like making one column disable, invisible or return select box combo editor.
