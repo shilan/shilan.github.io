@@ -33,6 +33,8 @@ There is something that you should know though, you are running on cpu mode and 
 In the website was mentioned that it will take you few hours, for me with a brand new 5 core windows machine took 48 hours!!!
 So don't bind your hope that you see the results soon because you won't!
 
-##Customize the Training Classification##
+Last but not least, since it's gonna take a long time to train your NN, you may need to start over from the saved checkpoints. But where do they get saved in windows machine? the default path is /tmp/speech_commands_data folder which is located in your C drive root. I learned later that I could change that directly in train.py.
+
+#Customize the Training Classification#
 You might wonder what if I want to run with less words (commands) or what if I want to add more custom commands.
 Fortunately train.py comes with a handy parameter --wanted_words that you just add at the end of the command. There are even more samples in dataset like house, sheila .... Adding them in front of --wanted_words you can easily train your NN with them.
