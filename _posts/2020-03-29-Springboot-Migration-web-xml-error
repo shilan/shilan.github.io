@@ -1,0 +1,13 @@
+	/**
+	 * This replaces the old-fashioned <error-page> tag in web.xml.
+	 * This handles the 404 error thrown from .jsp not found pages. 
+	 * @return
+	 */
+    @Bean
+    public ErrorPageRegistrar errorPageRegistrar() {
+        return registry -> {
+            registry.addErrorPages(
+                new ErrorPage(HttpStatus.NOT_FOUND, Constants.ERROR_404_PAGE_URL)
+            );
+        };
+    }
