@@ -13,10 +13,10 @@ But still we had our own challenges too.
 Now that we are in production finally I am gonna write few posts how we resolved our problems.
 ## Today is about JSP view resolver
 You might have noticed in Spring Boot migration document mentioned that you can easily set the application.properties to 
-``
+```
 spring.mvc.view.prefix: /WEB-INF/jsp/
 spring.mvc.view.suffix: .jsp
-``
+```
 while this is true and works for simple scenarios, what if you needed more than one ViewResolver? What if you had to customize the forwards and includes like we had to do?
 Assume your legacy code JSP folder is not centeralized in one place. In our application forexample we had two different placeholders for our JSP files. One directly under WEB-INF,
 the other one under webapp.
@@ -67,7 +67,7 @@ There is no application property for setting it in configuration file but now th
     <!-- Page-level JSP views are managed through spring internal viewResolver.  -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix">
-            <value>/applications/jsp/</value>
+            <value>/myapp/jsp/</value>
         </property>
         <property name="suffix">
             <value>.jsp</value>
