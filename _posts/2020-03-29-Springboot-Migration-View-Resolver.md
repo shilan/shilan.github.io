@@ -22,7 +22,7 @@ Assume your legacy code JSP folder is not centeralized in one place. In our appl
 the other one under webapp.
 In this case you should programetically access those either by setting a view resolver in your dispatcher-servlet.xml file, (if you are still using xml-based configuration)
 like below:
-``
+```
     <bean id="firstViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix">
             <value>/myapp/jsp/</value>
@@ -31,7 +31,7 @@ like below:
             <value>.jsp</value>
         </property>
     </bean>
-``
+```
 
 Or define them as two separate beans with two different names:
 
@@ -63,7 +63,7 @@ Servlet include, even if a forward would be possible.
 "
 To fix that we need to set ``alwaysInclude`` to true, otherwise spring boot changes dispatcherType of dispatches to jsps to FORWARD automatically.
 There is no application property for setting it in configuration file but now that we have our customized ViewResolver we can easily set it in our xml:
-``
+```
     <!-- Page-level JSP views are managed through spring internal viewResolver.  -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix">
@@ -79,7 +79,7 @@ There is no application property for setting it in configuration file but now th
         	<value>text/html;charset=UTF-8</value>
         </property>
     </bean>
-`` 
+``` 
 or just ``resolver.setAlwaysInclude(true)`` in our bean definition.
 
 Not here I have also set the contentType to UTF-8 as I noticed that I missing UTF8 formatting in some of the Forwards and Includes.
