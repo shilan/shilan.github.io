@@ -12,3 +12,29 @@ When we wanted to migrate our giant 7 years old application to Spring boot 6 mon
 But still we had our own challenges too.
 Now that we are in production finally I am gonna write few posts how we resolved our problems.
 ## Today is about JSP view resolver
+
+    <!-- Page-level JSP views are managed through spring internal viewResolver. alwaysInclude should be set
+    	to true, otherwise spring boot changes dispatcherType of dispatches to jsps to FORWARD automatically. -->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix">
+            <value>/applications/jsp/</value>
+        </property>
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
+        <property name="alwaysInclude">
+        	<value>true</value>
+        </property>
+        <property name="contentType">
+        	<value>text/html;charset=UTF-8</value>
+        </property>
+    </bean>
+    
+    InternalResourceViewResolver
+
+	/**
+	 * Specify whether to always include the view rather than forward to it.
+	 * <p>Default is "false". Switch this flag on to enforce the use of a
+	 * Servlet include, even if a forward would be possible.
+	 * @see InternalResourceView#setAlwaysInclude
+	 */
