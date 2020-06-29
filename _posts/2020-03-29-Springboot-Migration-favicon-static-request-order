@@ -1,0 +1,36 @@
+2020-03-29-Springboot-Migration-web-xml-error
+
+	/**
+	 * Here we map all the static resources we want to serve.
+	 * We typically only serve from the root.
+	 * 
+	 * The request handler mapping produced from the registry has lowest precedence + 1.
+	 * We can change it here if necessary.
+	 */
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		// Let's have this as default, if there's no favicon configured for a publication.
+		registry.addResourceHandler("/favicon.ico").addResourceLocations("classpath:/static/");
+	}
+  
+  
+  
+  	/**
+	 * This default controller mapping matches all requests and will prevent us from serving static files
+	 * if it has higher precedence than the Spring Boot resource handlers, which has lowest precedence + 1.
+	 * We therefore give our handler mapping the lowest precedence.
+	 * 
+	 * @return
+	 */
+	@Bean
+	public SimpleUrlHandlerMapping defaultUrlHandlerMapping() {
+		SimpleUrlHandlerMapping simpleUrlHandlerMapping = new SimpleUrlHandlerMapping();
+		Map<String, Object> urlMap = new HashMap<>();
+		
+		urlMap.put("/**", defaultController());
+		
+		simpleUrlHandlerMapping.setUrlMap(urlMap);
+		simpleUrlHandlerMapping.setOrder(Ordered.LOWEST_PRECEDENCE);
+		simpleUrlHandlerMapping.setAlwaysUseFullPath(true);
+		return simpleUrlHandlerMapping;
+	}
