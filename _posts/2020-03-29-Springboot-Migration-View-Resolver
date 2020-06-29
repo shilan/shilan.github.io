@@ -1,3 +1,12 @@
+---
+title: Migration to Spring Boot, View Resolver
+author: Shilan Kalhor
+date: 2020-06-29 12:34:00 +0800
+categories: [Coding, Springboot, migration, legacy spring, ViewResolver, JSP]
+tags: [Springboot, migration, java, legacy spring, ViewResolver, JSP]
+toc: false
+---
+
 You wanna migrate your legacy java jsp servlet base application to Spring boot 2 and Java the latest? Though you should get ready beforehand but don't get intimidated!
 When we wanted to migrate our giant 7 years old application to Spring boot 6 months ago, his blog post was the best covering document.
 But still we had our own challenges too.
