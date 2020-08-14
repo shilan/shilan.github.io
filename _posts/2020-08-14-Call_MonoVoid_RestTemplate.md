@@ -7,7 +7,7 @@ tags: [Java, SpringBoot, RestTemplate, WebClient]
 toc: false
 ---
 
-## Calling a service that returns `Mono<Void>` with RestTemplate
+# Calling a service that returns `Mono<Void>` with RestTemplate
 I had a rest service that was implemented by Spring WebFlux. Was a POST that returned Mono<Void>.
 The client however was still using RestTemplate.
 Calling it with postForEntity(...) or exchange(...) method worked at first glance but then I realized there is a problem!
@@ -40,12 +40,13 @@ Checking everythin on service and debugging RestTemplate code, I found out the h
 		return true;
 	}
 ```
-## Solution
-Potentially there is a bug in RestTemplate that sets the content-length to 0.
+# Solution
+Potentially there is a bug in RestTemplate that sets the content-length to 0. In my world there are two solutions to this:
 I had two solutions for it:
-# Change the Service
+
+## Change the Service
 If you can, you may change the service to return a none-webflux Object. This is easy by using `.block()` method before returning from service method.
-# Use WebClient
+## Use WebClient
 If just like our case, changing the rest service is either impossible or expensive, try to use `WebClient` instead of `RestTemplate`.
 The new Spring WebClient is much cleaner and in my opinion has better options for setting the uri and authorization token.
 Note that you don't need to use Reactive in your entire project to just use WebClient, you just need to add few dependencies and you are good to go:
