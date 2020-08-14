@@ -18,27 +18,27 @@ Checking everythin on service and debugging RestTemplate code, I found out the h
 	Here is the RestTemplate implementation:
 	
 ```
-	/**
-	 * Indicates whether the response has a message body.
-	 * <p>Implementation returns {@code false} for:
-	 * <ul>
-	 * <li>a response status of {@code 1XX}, {@code 204} or {@code 304}</li>
-	 * <li>a {@code Content-Length} header of {@code 0}</li>
-	 * </ul>
-	 * @return {@code true} if the response has a message body, {@code false} otherwise
-	 * @throws IOException in case of I/O errors
-	 */
-	public boolean hasMessageBody() throws IOException {
-		HttpStatus status = HttpStatus.resolve(getRawStatusCode());
-		if (status != null && (status.is1xxInformational() || status == HttpStatus.NO_CONTENT ||
-				status == HttpStatus.NOT_MODIFIED)) {
-			return false;
-		}
-		if (getHeaders().getContentLength() == 0) {
-			return false;
-		}
-		return true;
+/**
+ * Indicates whether the response has a message body.
+ * <p>Implementation returns {@code false} for:
+ * <ul>
+ * <li>a response status of {@code 1XX}, {@code 204} or {@code 304}</li>
+ * <li>a {@code Content-Length} header of {@code 0}</li>
+ * </ul>
+ * @return {@code true} if the response has a message body, {@code false} otherwise
+ * @throws IOException in case of I/O errors
+ */
+public boolean hasMessageBody() throws IOException {
+	HttpStatus status = HttpStatus.resolve(getRawStatusCode());
+	if (status != null && (status.is1xxInformational() || status == HttpStatus.NO_CONTENT ||
+			status == HttpStatus.NOT_MODIFIED)) {
+		return false;
 	}
+	if (getHeaders().getContentLength() == 0) {
+		return false;
+	}
+	return true;
+}
 ```
 # Solution
 Potentially there is a bug in RestTemplate that sets the content-length to 0. In my world there are two solutions to this:
@@ -52,20 +52,20 @@ The new Spring WebClient is much cleaner and in my opinion has better options fo
 Note that you don't need to use Reactive in your entire project to just use WebClient, you just need to add few dependencies and you are good to go:
 
 ```
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.projectreactor</groupId>
-            <artifactId>reactor-core</artifactId>
-            <version>3.3.4.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectreactor</groupId>
-            <artifactId>reactor-spring</artifactId>
-            <version>1.0.1.RELEASE</version>
-        </dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-webflux</artifactId>
+</dependency>
+<dependency>
+    <groupId>io.projectreactor</groupId>
+    <artifactId>reactor-core</artifactId>
+    <version>3.3.4.RELEASE</version>
+</dependency>
+<dependency>
+    <groupId>org.projectreactor</groupId>
+    <artifactId>reactor-spring</artifactId>
+    <version>1.0.1.RELEASE</version>
+</dependency>
 ```
 So just go ahead and don't be afraid of using WebClient in your application, you can gradually replace all the RestTemplate usages with WebClient in your project.
 Though there is no *Rush* migrating to WebClient but you'd better know that in future releases the RestTemplate will get deprecated:
