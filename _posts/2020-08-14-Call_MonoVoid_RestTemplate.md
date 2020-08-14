@@ -17,7 +17,7 @@ Checking everythin on service and debugging RestTemplate code, I found out the h
 	Debugging further in RestTemplate, found out here there is a check for `if (getHeaders().getContentLength() == 0) ` and if the Content-length is zero which is set to 0 by RestTemplate for Mono<Void> returning services, the hasMessagingBody with be set to false.
 	Here is the RestTemplate implementation:
 	
-``
+```
 	/**
 	 * Indicates whether the response has a message body.
 	 * <p>Implementation returns {@code false} for:
@@ -39,7 +39,7 @@ Checking everythin on service and debugging RestTemplate code, I found out the h
 		}
 		return true;
 	}
-``
+```
 ## Solution
 Potentially there is a bug in RestTemplate that sets the content-length to 0.
 I had two solutions for it:
@@ -50,7 +50,7 @@ If just like our case, changing the rest service is either impossible or expensi
 The new Spring WebClient is much cleaner and in my opinion has better options for setting the uri and authorization token.
 Note that you don't need to use Reactive in your entire project to just use WebClient, you just need to add few dependencies and you are good to go:
 
-``
+```
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
@@ -65,7 +65,7 @@ Note that you don't need to use Reactive in your entire project to just use WebC
             <artifactId>reactor-spring</artifactId>
             <version>1.0.1.RELEASE</version>
         </dependency>
-``
+```
 So just go ahead and don't be afraid of using WebClient in your application, you can gradually replace the RestTemplate usages with WebClient.
 Though there is no *Rush* migrating to WebClient but you'd better know that in future releases the RestTemplate will get deprecated:
 [RestTemplate Deprecating](https://github.com/spring-guides/gs-consuming-rest/issues/28)
