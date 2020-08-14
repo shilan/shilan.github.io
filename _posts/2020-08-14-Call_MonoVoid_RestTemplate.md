@@ -67,6 +67,6 @@ Note that you don't need to use Reactive in your entire project to just use WebC
             <version>1.0.1.RELEASE</version>
         </dependency>
 ```
-So just go ahead and don't be afraid of using WebClient in your application, you can gradually replace the RestTemplate usages with WebClient.
+So just go ahead and don't be afraid of using WebClient in your application, you can gradually replace all the RestTemplate usages with WebClient in your project.
 Though there is no *Rush* migrating to WebClient but you'd better know that in future releases the RestTemplate will get deprecated:
 [RestTemplate Deprecating](https://github.com/spring-guides/gs-consuming-rest/issues/28)
